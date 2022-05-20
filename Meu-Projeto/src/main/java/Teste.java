@@ -11,8 +11,8 @@ import br.com.allan.modelos.Produto;
 public class Teste {
 
 	public static void main(String[] args) throws Exception {
-		System.out.println(TipoMovimentacao.ENTRADA.valor);
-		Class<?> classe =  Class.forName("br.com.allan."+TipoMovimentacao.ENTRADA.valor);
+		System.out.println(TipoMovimentacao.ENTRADA.getValue());
+		Class<?> classe =  Class.forName("br.com.allan."+TipoMovimentacao.ENTRADA.getValue());
 		Movimentacao movimentacao = (Movimentacao) classe.getDeclaredConstructor(null).newInstance();
 		System.out.println(movimentacao.toString());
 	}

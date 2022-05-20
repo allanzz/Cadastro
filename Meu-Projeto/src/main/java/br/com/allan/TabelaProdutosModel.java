@@ -1,5 +1,7 @@
 package br.com.allan;
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 import javax.swing.event.TableModelListener;
 import javax.swing.table.AbstractTableModel;
@@ -47,11 +49,11 @@ public class TabelaProdutosModel extends AbstractTableModel {
 		case 0:
 			return produto.getNome();			
 		case 1:
-			return produto.getCusto();
+			return retornaValorFormatado(produto.getCusto());
 		case 2:
-			return produto.getCustoMedio();
+			return retornaValorFormatado(produto.getCustoMedio());
 		case 3:
-			return produto.getPrecoVenda();
+			return retornaValorFormatado(produto.getPrecoVenda());
 		case 4:
 			return produto.getDescricao();
 		case 5:
@@ -107,6 +109,13 @@ public class TabelaProdutosModel extends AbstractTableModel {
 	public void removeTableModelListener(TableModelListener l) {
 		// TODO Auto-generated method stub
 		
+	}
+	public String retornaValorFormatado(double valor) {
+		NumberFormat formato= NumberFormat.getInstance(new Locale("en", "US"));
+		formato.setMaximumFractionDigits(2);
+		formato.setMinimumFractionDigits(2);
+		String valorFormatado = formato.format(valor);
+		return valorFormatado;
 	}
 
 }

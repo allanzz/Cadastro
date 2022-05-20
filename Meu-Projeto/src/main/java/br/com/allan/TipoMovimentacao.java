@@ -3,9 +3,12 @@ package br.com.allan;
 public enum TipoMovimentacao {
 	ENTRADA("Entrada"),SAIDA("Saida");
 
-	public String valor;
+	private String valor;
 	TipoMovimentacao(String string) {
 		valor = string;
 	}
+	public String getValue(){
+        return valor;
+    }
 
 }

@@ -24,7 +24,7 @@ public class Saida implements Movimentacao{
 		this.data = data;
 	}
 
-	public Produto movimentar(Produto produto,int quantidade) {
+	public Produto movimentar(Produto produto, int quantidade, double custo) {
 		try {
 			if (quantidade>0) {
 				produto.setEstoque(produto.getEstoque() - quantidade);								
@@ -35,12 +35,6 @@ public class Saida implements Movimentacao{
 			
 		}
 		return produto;
-	}
-	
-
-	public Produto movimentar(Produto produto, int quantidade, double custo) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

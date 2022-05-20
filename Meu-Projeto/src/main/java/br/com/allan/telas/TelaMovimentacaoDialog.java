@@ -26,8 +26,8 @@ public class TelaMovimentacaoDialog extends JDialog {
 	private JComboBox comboBox;
 	private int qtd;
 	private double custo;
-	private String tipoMov;
 	boolean confirm=false;
+	TipoMovimentacao tipoMov;
 
 	/**
 	 * Launch the application.
@@ -90,8 +90,8 @@ public class TelaMovimentacaoDialog extends JDialog {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				qtd = Integer.parseInt(textQtd.getText());
-				tipoMov = comboBox.getSelectedItem().toString();
-				if(tipoMov=="ENTRADA") {
+				tipoMov =(TipoMovimentacao) comboBox.getSelectedItem();
+				if(tipoMov.getValue().equals("Entrada")) {
 					custo = Double.parseDouble(textCusto.getText());
 				}
 				textCusto.setText("");
@@ -126,6 +126,6 @@ public class TelaMovimentacaoDialog extends JDialog {
 		return custo;
 	}
 	public String getTipoMovimentacao(){
-		return tipoMov;		
+		return tipoMov.getValue();		
 	}
 }
